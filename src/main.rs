@@ -67,10 +67,10 @@ fn main() {
         }
 
         if argument.eq("--help") || argument.eq("--h") || argument.eq("-h") || argument.eq("-help") {
-            println!("This command generates a random password.
-    -s              |   This flag enables the use of special characters
-    --amount <n>    |   This is the number on how many passwords get generated (default 1)
-    --length <n>    |   This decides the length of the password (default 8)
+            println!("This command generates a random password. (by default, false)
+    -s              |   This flag enables the use of special characters ()
+    --amount <n>    |   This is the number of passwords that will be generated (by default, 1)
+    --length <n>    |   This decides the length of the password (by default, 8)
     -h              |   This help command shows all arguments you can use");
             return;
         }
