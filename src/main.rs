@@ -50,23 +50,23 @@ fn main() {
     let arguments: Vec<String> = env::args().collect();
     for (index ,argument) in arguments.iter().enumerate() {
 
-        if argument.eq("-s") {
+        if argument.eq("-s") || argument.eq("--s"){
             configuration.use_special_chars = true;
         }
 
-        if argument.eq("--length") || argument.eq("--l") {
+        if argument.eq("--length") || argument.eq("--l") || argument.eq("-l") || argument.eq("-length") {
             let default_value: String = String::from("8");
             //If the amount is not a number, a default value gets used
             configuration.length = arguments.get(index+1).unwrap_or(&default_value).parse().unwrap_or(8);
         }
 
-        if argument.eq("--amount") || argument.eq("--a"){
+        if argument.eq("--amount") || argument.eq("--a") || argument.eq("-a") || argument.eq("-amount"){
             let default_value: String = String::from("1");
             //If the amount is not a number, a default value gets used
             amount = arguments.get(index+1).unwrap_or(&default_value).parse().unwrap_or(1);
         }
 
-        if argument.eq("--help") || argument.eq("-h") || argument.eq("--h") {
+        if argument.eq("--help") || argument.eq("--h") || argument.eq("-h") || argument.eq("-help") {
             println!("This command generates a random password.
     -s              |   This flag enables the use of special characters
     --amount <n>    |   This is the number on how many passwords get generated (default 1)
