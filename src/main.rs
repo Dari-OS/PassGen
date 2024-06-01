@@ -5,7 +5,7 @@ const ALL_LETTERS_UPPERCASE: &str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const ALL_CHARACTERS: &str = "!@#$%^&*()-_=+[]{};:,.<>?/`~";
 
 struct PasswordConfigurations {
-    length: u32,
+    length: usize,
     use_special_chars: bool,
     use_uppercase_letters: bool,
     use_lowercase_letters: bool,
@@ -33,7 +33,7 @@ impl PasswordConfigurations {
         }
     }
 
-    fn get_config(length: u32, use_special_chars: Option<bool>) -> PasswordConfigurations {
+    fn get_config(length: usize, use_special_chars: Option<bool>) -> PasswordConfigurations {
         Self {
             length,
             use_special_chars: use_special_chars.unwrap_or(false),
@@ -46,7 +46,7 @@ impl PasswordConfigurations {
 
 fn main() {
     let mut configuration = PasswordConfigurations::get_default_config();
-    let mut amount: u32 = 1;
+    let mut amount: usize = 1;
     let arguments: Vec<String> = env::args().collect();
     for (index ,argument) in arguments.iter().enumerate() {
 
